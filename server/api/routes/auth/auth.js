@@ -67,10 +67,11 @@ router.post('/login', async (req, res) => {
     // create token
     const token = jwt.sign({
         name: user.name,
+        _id : user._id,
         email: user.email
     }, config.TOKEN_SECRET, {expiresIn: '1h'})
     
-    return res.json({
+    return res.status(200).json({
         email : user.email,
         _id : user._id,
         name : user.name,
@@ -84,7 +85,12 @@ router.post('/validate', async (req, res) => {
     try {
         const verified = jwt.verify(token, config.TOKEN_SECRET);
         if(verified){
-            res.status(200).json({});
+            res.status(200).json({
+                email : verified.email,
+                _id : verified._id,
+                name : verified.name,
+                token
+            });
         } else {
             res.status(401).json({ error: 'Ha expirado la sesión.' });
         }

@@ -4,9 +4,13 @@ import ValidateToken from './validateToken'
 
 const PrivateRoute = ({ children }) => {
 
-    const token = useSelector((state) => state.auth.userToken)
-    if (token === '' || token === null) return <Navigate to="/login" />;
-    else 
+    let token = useSelector((state) => state.auth.userToken)
+    if (token === '' || token === null) {
+        token = sessionStorage.getItem("token"); 
+    }
+    if (token === '' || token === null) {
+        return <Navigate to="/login" />;
+    }
     if (ValidateToken(token)) {
         return children
     } else {

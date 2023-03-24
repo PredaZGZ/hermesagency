@@ -1,9 +1,11 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-import { GoDashboard, GoSettings } from "react-icons/go";
+import { GoSettings } from "react-icons/go";
 import { CiLogout } from "react-icons/ci";
-import { AiOutlineUser } from "react-icons/ai";
+import { AiOutlineDashboard } from "react-icons/ai";
+import { CgProfile } from "react-icons/cg";
+import { ImProfile } from "react-icons/im";
 import { useDispatch, useSelector } from "react-redux";
 import { Logout } from "../Slices/AuthSlice"
 
@@ -12,8 +14,8 @@ export default function Sidebar() {
     const { user } = useSelector((state) => state.auth)
     const dispatch = useDispatch();
 
-    let activeClassName = "flex items-center p-2 rounded-lg text-white bg-zinc-700";
-    let notactiveClassName = "flex items-center p-2 rounded-lg text-white hover:bg-zinc-700";
+    let activeClassName = "flex m-2 py-2 px-10 items-center sidebar-item-active";
+    let notactiveClassName = "flex m-2 py-2 px-10 items-center sidebar-item";
 
     const handleLogout = () => {
         dispatch(Logout());
@@ -22,13 +24,27 @@ export default function Sidebar() {
     return (
         <>
             <aside className="min-w-fit shadow w-1/6">
-                <div className="fondo sidebar py-4 overflow-y-auto h-full flex flex-col justify-between">
+                <div className="fondo sidebar py-4 overflow-y-auto h-full flex flex-col">
+                    <ul className="">
+                        <li>
+                            <div className="flex px-10">
+                                <div className="flex items-center p-">
+                                    <CgProfile className="dash-icon" />
+                                    <span className="ml-3">{user.name}</span>
+                                </div>
+                                <div className="flex items-center p-2">
+                                    <CiLogout onClick={handleLogout} className="cursor-pointer" />
+                                </div>
+                            </div>
+                        </li>
+
+                    </ul>
                     <ul className="text-center">
                         <li>
                             <NavLink to="/dashboard" className={({ isActive }) =>
                                 isActive ? activeClassName : notactiveClassName
                             }>
-                                <GoDashboard />
+                                <AiOutlineDashboard className="dash-icon" />
                                 <span className="ml-3">Dashboard</span>
                             </NavLink>
                         </li>
@@ -36,7 +52,7 @@ export default function Sidebar() {
                             <NavLink to="/accounts" className={({ isActive }) =>
                                 isActive ? activeClassName : notactiveClassName
                             }>
-                                <GoDashboard />
+                                <ImProfile />
                                 <span className="ml-3">Accounts</span>
                             </NavLink>
                         </li>
@@ -50,20 +66,7 @@ export default function Sidebar() {
                         </li>
 
                     </ul>
-                    <ul className="pt-4 mt-4 space-y-2 border-t border-zinc-700">
-                        <li>
-                            <div className="flex justify-between">
-                                <div className="flex items-center p-2 text-white">
-                                    <AiOutlineUser />
-                                    <span className="ml-3">{user.name}</span>
-                                </div>
-                                <div className="flex items-center p-2 text-white">
-                                    <CiLogout onClick={handleLogout} className="cursor-pointer" />
-                                </div>
-                            </div>
-                        </li>
 
-                    </ul>
 
                 </div>
             </aside>

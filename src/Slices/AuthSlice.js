@@ -32,6 +32,7 @@ const authSlice = createSlice({
         email : "",
       } 
       state.userToken = null
+      sessionStorage.clear()
     },
     setLogin : (state, action) => {
       state.user = {
