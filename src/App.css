@@ -7,7 +7,7 @@
 }
 
 .sidebar {
-  color: #C2C2C2;
+  color: #FFFFFF;
   border-right: 1px solid rgba(255, 255, 255, 0.1);
 }
 .sidebar2 {
@@ -162,4 +162,78 @@
   line-height: 18px;
   display: flex;
   flex-direction: row;
+}
+
+.fondo3 {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.searchbox {
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  width: 160px;
+  height: 28px;
+}
+
+.inputseach {
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  width: 160px;
+  height: 28px;
+  text-indent: 30px;
+  caret-color: rgba(255, 255, 255, 0.2);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 26px;
+  color: rgba(255, 255, 255, 0.2)
+}
+
+.inputseach::placeholder {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 26px;
+  color: rgba(255, 255, 255, 0.2);
+}
+
+.help1 {
+  margin-right: -25px;
+}
+
+.title {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.4);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.table-body{
+  color: #FFFFFF;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+}
+.fila {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.account-li {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: #FFFFFF;
+  margin-top: 0.25rem;
+}
+
+.acc3:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+}
+
+.chart1 {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  height: 320px;
 }

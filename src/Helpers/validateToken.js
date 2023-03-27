@@ -1,7 +1,9 @@
 import axios from "axios"
 import { isExpired } from "react-jwt";
 import { setLogin } from "../Slices/AuthSlice";
+import { setAccounts } from "../Slices/AccountsSlice";
 import { useDispatch } from "react-redux";
+import AccountsHelper from "./AccountsHelper";
 
 
 const ValidateToken = (token) => {
@@ -19,7 +21,9 @@ const ValidateToken = (token) => {
     } else {
         return axios.post('http://localhost:4000/auth/validate', {}, config).then(res => {
             if (res.status === 200) { 
-                dispatch(setLogin(res.data));         
+                dispatch(setLogin(res.data.login));
+                dispatch(setAccounts(AccountsHelper(res.data.accounts)));
+                
                 return true;
             } else {
                 return false;

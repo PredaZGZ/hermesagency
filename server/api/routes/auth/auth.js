@@ -85,11 +85,15 @@ router.post('/validate', async (req, res) => {
     try {
         const verified = jwt.verify(token, config.TOKEN_SECRET);
         if(verified){
+            const user = await User.findById(verified._id).populate("accounts")
             res.status(200).json({
-                email : verified.email,
-                _id : verified._id,
-                name : verified.name,
-                token
+                login : {
+                    email : verified.email,
+                    _id : verified._id,
+                    name : verified.name,
+                    token
+                },
+                accounts : user.accounts
             });
         } else {
             res.status(401).json({ error: 'Ha expirado la sesión.' });

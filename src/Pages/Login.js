@@ -11,12 +11,11 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
+  const { userToken } = useSelector((state) => state.auth)
 
   const dispatch = useDispatch();
-
-  const token = useSelector((state) => state.auth.userToken);
   try {
-    ValidateToken(token).then((res) => {
+    ValidateToken(userToken).then((res) => {
       if (res.status === 200) {
         navigate('/dashboard');
       }
@@ -41,6 +40,8 @@ const Login = () => {
       })
       .catch(() => { setErrorMsg("Something went wrong") });
   }
+
+
   const handleSubmit = (e) => {
     e.preventDefault();
     sendLoginRequest();

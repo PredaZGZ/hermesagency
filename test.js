@@ -1,7 +1,7 @@
 const axios = require('axios');
 const url = "https://mt-client-api-v1.london.agiliumtrade.ai"
-const token = "eyJhbGciOiJSUzUxMiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI0ODJmZjA4MjY4OTdlZjMyNDJkM2E4NjA5MTU5ZmJhZCIsInBlcm1pc3Npb25zIjpbXSwidG9rZW5JZCI6IjIwMjEwMjEzIiwiaW1wZXJzb25hdGVkIjpmYWxzZSwicmVhbFVzZXJJZCI6IjQ4MmZmMDgyNjg5N2VmMzI0MmQzYTg2MDkxNTlmYmFkIiwiaWF0IjoxNjc5NDEyMzUxfQ.ggCdtxz42OFIiJiANJwXafo7azGpW0Uq5KaxqWPXcSQAGfgdRWxMsGcOySZNkBhyP9eAVElXtnYYtm060XCUyH3-5wG00UlfwaGiNFadYuWnsTEwKMk6syzBAgI2Cm7jc_Nw_jeuF_dg6ov8luIckkXNV6vDBRPVNuxPdDQ6k77H7MUHvWokIdoQ-X_uHv3J5X-4J0RxbPeTGdl7E-dXJfjy-CJL8oHOUB_c5ftM4QnhLr5eDpE9S7KM-kpM_z4KjCdIWpRIugTavLNFMxZkMEkPAF0FkawV8mOq8EXTqW17WcTfuTa-1I96gOF8QhgaMWzfrYpJiLJ_LkoiDdrDBPW9LvRDzgRl2tbMmKHbFHVkpEMf5ASyuF7H4fhUdfe90LxgpwvR9cDwfV0w2JyLntpaMnBLk8xGvmXSNOJ3lFAcE4pLl9Kfyi_rx30dnUhDGDrPgNQe0JGRpLgVZBXQD2XJyAW-5_7V-568jnVZCvcRGYQ-XK0igURdv8C2IAx1KWtRwzBvK944GBrGKXL5do48hWOXE1_jEPuXPi1nkwbXdNBgnZCMH1fWM_vRv5wcQKz2661qDxkN_MoWbvY5AHZKKAIndnPL_leZdZAOIIRIou8rN_c_vYW-uwR2dk_0NMvWiVai5SzIvkHUyblmpEeW8mRGh7hrJTbNsM2i3Bs"
-const id = "3cd09a7f-ff1a-487f-b972-1b5f8c604009"
+const token = "eyJhbGciOiJSUzUxMiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI5NDM2ZDRmMzRmN2M1MGJiZmYxM2QxODZlMzJmZGI0NiIsInBlcm1pc3Npb25zIjpbXSwidG9rZW5JZCI6IjIwMjEwMjEzIiwiaW1wZXJzb25hdGVkIjpmYWxzZSwicmVhbFVzZXJJZCI6Ijk0MzZkNGYzNGY3YzUwYmJmZjEzZDE4NmUzMmZkYjQ2IiwiaWF0IjoxNjc5NzU0MzY5fQ.UVB5Zi96wvTYRFqwJNmQ4gupg7ykXdTV03-3gVNojAEaODAAit--qdixvV3HsInNQrlN_wcWKnrPLHfRq99PaS1vxXMgXVMFmDY_xgTd5tAkosGEdFo_qRJN2e68yLccu5AxuaQMCdgr1pS6peUSY8FTjMeTFUIwLaSSMYF9SaRnSfCM6b5dHR4UyXr9vjTyJepDP1ydz-ERcGEm8rubrKodHHwc8AGMI3Uutw-Nilp6_ebSD75rMgAd2GD3eRDLXzqlFF91HR-dqfUTdm6WyzzkXz3I2vLOOBX8HjEL1rEcuUDdPFhkWxo8wOF8QtQ1ZeENPnDFz_5P7Omkc3QrHMyGLa2arkXsDbLHPt7GTyWEF4SB5XqAHzketu7iw0W51Tuj3x6rtoMeroSZxHS7kJZody5QDIcG_4zIyTNUWV6pGiJM7Nj4h1iuFb8nvdcn_imkHeygxH_gDc7Xqm6yWeTchHPx09MLnGGKa60YOmmbvyNbtjleNQlSRPC9T6FKtjdphpMDZYUXGqsYq6MR1AKs3OnIuwjk0ro0Z9DhkXoIdFSvhhMc0CEogf_bmFXvmvPohpRK2kNe6Z8tpFh0xXZ7Qn7nWtx1WcYgOF6N2S9X5QWU0DNLpYwMTDpSLObJNwRjJ6E_-PnjVn-9sa6M7j3CJE_MDE4ZIYKtD_FsG_k"
+const id = "cd9934db-a054-427b-9ca9-4c1ef21e7a05"
 
 axios.get(url + '/users/current/accounts/'+id+'/account-information', {
     headers: {
@@ -9,11 +9,9 @@ axios.get(url + '/users/current/accounts/'+id+'/account-information', {
       }
 })
   .then(function (response) {
-    // manejar respuesta exitosa
-    console.log(response);
+    console.log(response.data);
   })
   .catch(function (error) {
-    // manejar error
     console.log(error);
   })
   .finally(function () {
