@@ -64,18 +64,21 @@ router.post('/login', async (req, res) => {
     const validPassword = await bcrypt.compare(req.body.password, user.password);
     if (!validPassword) return res.status(400).json({ error: 'contraseña no válida' })
     
-    // create token
+    const dt = new Date()
+
     const token = jwt.sign({
         name: user.name,
         _id : user._id,
-        email: user.email
+        email: user.email,
+        date: ('0' + dt.getHours()).slice(-2) + ":" + ('0' + dt.getMinutes()).slice(-2)
     }, config.TOKEN_SECRET, {expiresIn: '1h'})
     
     return res.status(200).json({
         email : user.email,
         _id : user._id,
         name : user.name,
-        token
+        token,
+        date: ('0' + dt.getHours()).slice(-2) + ":" + ('0' + dt.getMinutes()).slice(-2)
     })
 })
 
@@ -91,7 +94,8 @@ router.post('/validate', async (req, res) => {
                     email : verified.email,
                     _id : verified._id,
                     name : verified.name,
-                    token
+                    token,
+                    date: verified.date
                 },
                 accounts : user.accounts
             });

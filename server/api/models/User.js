@@ -5,6 +5,7 @@ const UserSchema = mongoose.Schema({
     email: String,
     password: String,
     role: String,
+    tokenAPI: String,
     accounts: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: "Account"

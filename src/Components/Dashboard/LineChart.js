@@ -59,15 +59,7 @@ const LineChart = () => {
   const options = {
     responsive: false,
     layout: { padding: { top: 12, left: 12, bottom: 12, }, },
-    scales: {
-      xAxes: [{
-        gridLines: { display: false },
-      }],
-
-      yAxes: [{
-        gridLines: { borderDash: [], },
-      }],
-    }, plugins: {
+    plugins: {
       datalabels: { display: false },
     },
     legend: {

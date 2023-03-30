@@ -3,13 +3,13 @@ const User = require('../models/User');
 
 module.exports = {
     create: async (req, res) => {
-      const { accountid, name, userid } = req.body;
+      const { accountid, name, userid, initialbalance, phase } = req.body;
       try {
         const user = await User.findById(userid);
         if (!user) {
           return res.status(404).json({ error: "User not found" });
         }
-        const newAccount = new Account({ user, accountid, name });
+        const newAccount = new Account({ user, accountid, name, initialbalance, phase });
         const savedAccount = await newAccount.save();
         user.accounts.push(savedAccount);
         await user.save();
@@ -69,6 +69,9 @@ module.exports = {
     listall: async (req, res) => {
       try {
         const accounts = await Account.find();
+        if (accounts.length === 0) {
+          return res.status(404).json({ error: "No accounts found" });
+        }
         return res.status(200).json({ accounts });
       } catch (error) {
         return res.status(500).json({ error: error.message });

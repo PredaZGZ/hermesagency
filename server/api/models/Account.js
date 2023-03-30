@@ -4,6 +4,7 @@ const AccountSchema = mongoose.Schema({
     name: String,
     accountid: String,
     password: String,
+    initialbalance: Number,
     lastbalance: Number,
     lastweek: Number,
     lastmonth: Number,
@@ -12,6 +13,10 @@ const AccountSchema = mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: "User"
     },
+    balances: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Balance"
+    }],
     date: {
         type: Date,
         default: Date.now

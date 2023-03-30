@@ -2,6 +2,7 @@ import MainRow from "./Dashboard/MainRow";
 import { useSelector } from "react-redux"
 import { useParams } from "react-router-dom"
 import LineChart from "./Dashboard/LineChart";
+import Progress from "./Dashboard/Progress";
 
 export default function MainDashboard() {
 
@@ -21,6 +22,7 @@ export default function MainDashboard() {
         </div>
         <MainRow />
         <LineChart /> 
+        <Progress />
       </div>
     )
   }

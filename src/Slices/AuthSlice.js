@@ -7,6 +7,7 @@ const initialState = {
     email : "",
   }, 
   userToken: null, 
+  lastLoginDate: "",
 }
 
 const authSlice = createSlice({
@@ -41,9 +42,12 @@ const authSlice = createSlice({
         email : action.payload.email,
       } 
       state.userToken = action.payload.token
+    },
+    setLoginDate : (state, action) => {
+      state.lastLoginDate = action.payload
     }
   }
 })
 
-export const { setName, setEmail, setToken, setId, Logout, setLogin } = authSlice.actions;
+export const { setName, setEmail, setToken, setId, Logout, setLogin, setLoginDate } = authSlice.actions;
 export default authSlice.reducer;

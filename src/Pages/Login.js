@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 import ValidateToken from "../Helpers/validateToken";
 import { useDispatch, useSelector } from "react-redux";
-import { setLogin } from "../Slices/AuthSlice";
+import { setLogin, setLoginDate } from "../Slices/AuthSlice";
 
 
 const Login = () => {
@@ -33,7 +33,9 @@ const Login = () => {
     axios.post("http://localhost:4000/auth/login", reqBody)
       .then((res) => {
         if (res.status === 200) {
+          console.log(res.data)
           dispatch(setLogin(res.data));
+          dispatch(setLoginDate(res.data.date));
           sessionStorage.setItem("token", res.data.token)
           navigate("/dashboard");
         }
