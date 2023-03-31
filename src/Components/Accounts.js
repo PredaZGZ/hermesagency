@@ -7,6 +7,7 @@ export default function Accounts() {
 
   const { accountlist } = useSelector((state) => state.accounts)
   const { userToken } = useSelector((state) => state.auth)
+  const { url } = useSelector(state => state.api)
 
   const toggleEdit = (event) => {
     const id = event.currentTarget.getAttribute('data');
@@ -15,9 +16,9 @@ export default function Accounts() {
 
   const toggleDelete = (event) => {
     const id = event.currentTarget.getAttribute('data');
-    const url = 'http://localhost:4000/accounts/' + id
+    const url2 = url + '/accounts/' + id
 
-    axios.delete(url, {
+    axios.delete(url2, {
       headers: {
         "auth-token": userToken
       }

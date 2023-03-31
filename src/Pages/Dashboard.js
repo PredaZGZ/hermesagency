@@ -6,7 +6,7 @@ import SidebarRight from "../Components/SidebarRight";
 export default function Dashboard() {
   //console.log(useParams())
   return (
-    <div className="flex fondo h-screen w-screen grow justify-between">
+    <div className="flex fondo h-max w-screen justify-between">
       <Sidebar />
       <MainDashboard />
       <SidebarRight />

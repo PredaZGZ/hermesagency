@@ -12,6 +12,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
   const { userToken } = useSelector((state) => state.auth)
+  const { url } = useSelector(state => state.api)
 
   const dispatch = useDispatch();
   try {
@@ -30,7 +31,7 @@ const Login = () => {
       password: password,
     };
 
-    axios.post("http://localhost:4000/auth/login", reqBody)
+    axios.post(url + "/auth/login", reqBody)
       .then((res) => {
         if (res.status === 200) {
           console.log(res.data)

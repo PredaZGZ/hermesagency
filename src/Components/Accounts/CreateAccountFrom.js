@@ -10,11 +10,12 @@ export default function CreateAccountForm() {
     const [payoutDate, setPayoutDate] = useState('');
 
     const { userToken, user } = useSelector((state) => state.auth)
+    const { url } = useSelector(state => state.api)
 
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        axios.post('http://localhost:4000/accounts/', {
+        axios.post(url + '/accounts/', {
             "accountid": accountId,
             "name": accountName,
             "initialbalance": balanceInicial,
