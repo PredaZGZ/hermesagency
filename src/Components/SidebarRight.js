@@ -9,7 +9,7 @@ export default function SidebarRight() {
     const dt = new Date()
     
     return (
-        <aside className="min-w-fit shadow w-1/6">
+        <aside className="min-w-fit shadow">
             <div className="fondo sidebar2 py-4 px-6 overflow-y-auto h-full flex flex-col">
                 <h1 className="nameh1 mx-auto">Notifications</h1>
                 <ul className="pb-3">

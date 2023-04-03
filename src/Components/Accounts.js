@@ -9,11 +9,6 @@ export default function Accounts() {
   const { userToken } = useSelector((state) => state.auth)
   const { url } = useSelector(state => state.api)
 
-  const toggleEdit = (event) => {
-    const id = event.currentTarget.getAttribute('data');
-    console.log(id)
-  }
-
   const toggleDelete = (event) => {
     const id = event.currentTarget.getAttribute('data');
     const url2 = url + '/accounts/' + id
@@ -28,6 +23,24 @@ export default function Accounts() {
       }
     })
   }
+
+  const handleEdit = (event, accountId) => {
+    event.preventDefault();
+    const newName = prompt('Enter new account name');
+    const url2 = url + '/accounts/' + accountId;
+  
+    axios.put(url2, { name: newName }, {
+      headers: {
+        "auth-token": userToken
+      }
+    }).then(res => {
+      if (res.status === 200) {
+        document.location.reload();
+      }
+    });
+  };
+
+  
   return (
     <div className="m-5 w-full">
       <div className="nameh1 mb-4">
@@ -52,7 +65,7 @@ export default function Accounts() {
               <td className="px-4 py-2">{account.phase}</td>
               <td className="px-4 py-2">{account.accountid}</td>
               <td className="px-4 py-2 flex justify-center mt-1">
-                <BsPencil data={account._id} onClick={toggleEdit} className="cursor-pointer" />
+                <BsPencil onClick={(event) => handleEdit(event, account._id)} className="cursor-pointer" />
                 <BsTrashFill data={account._id} onClick={toggleDelete} className="ml-4 cursor-pointer" />
               </td>
             </tr>
