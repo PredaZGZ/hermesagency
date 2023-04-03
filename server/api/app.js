@@ -20,6 +20,8 @@ const Accounts = require('./routes/accounts');
 app.use('/auth', Auth);
 app.use('/accounts', verifyToken, Accounts);
 
+GetDataHourly()
+
 cron.schedule('0 * * * *', async () => {
     console.log('Ejecutando GetDataHourly()...');
     await GetDataHourly();

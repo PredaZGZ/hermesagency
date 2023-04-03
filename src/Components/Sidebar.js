@@ -23,7 +23,7 @@ export default function Sidebar() {
 
     return (
         <>
-            <aside className="min-w-fit shadow w-1/6">
+            <aside className="min-w-fit shadow w-1/6 h-screen">
                 <div className="fondo sidebar py-4 overflow-y-auto h-full flex flex-col">
                     <ul className="">
                         <li>
