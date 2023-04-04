@@ -31,7 +31,7 @@ export default function SignUpForm() {
         <div className="fondo22 fixed flex flex-col justify-center">
             <form className='form3 flex flex-col text-center gap-14 text-white'
                 onSubmit={handleSubmit}>
-                <h1>Create User</h1>
+                <h1 className='text-bold text-4xl'>Create User</h1>
                 <label className=''>
                     Role:
                     <select style={{ backgroundColor: "transparent" }}
