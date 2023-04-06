@@ -56,20 +56,13 @@ async function GetDataHourly() {
                     percentageChangesThisWeek.push(percentageChange);
                 }
 
-
-
-                let averagePercentageChangeThisWeek = 0;
-
-                if (percentageChangesThisWeek.length > 0) {
-                    averagePercentageChangeThisWeek = percentageChangesThisWeek.reduce((sum, change) => sum + change, 0) / percentageChangesThisWeek.length;
-                }
-
+                console.log(percentageChangesThisWeek)
 
                 const stats = {
-                    thisWeek: averagePercentageChangeThisWeek,
-                    thisMonth: averagePercentageChangeThisMonth,
-                    lastWeek: averagePercentageChangeLastWeek,
-                    lastMonth: averagePercentageChangeLastMonth,
+                    thisWeek,
+                    thisMonth,
+                    lastWeek,
+                    lastMonth,
                 };
 
 
