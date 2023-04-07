@@ -13,6 +13,8 @@ module.exports = {
         const savedAccount = await newAccount.save();
         user.accounts.push(savedAccount);
         await user.save();
+        const GetDataHourly = require('./getData');
+        GetDataHourly()
         return res.status(201).json({ account: savedAccount });
       } catch (error) {
         return res.status(500).json({ error: error.message });
