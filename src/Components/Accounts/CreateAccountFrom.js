@@ -35,15 +35,15 @@ export default function CreateAccountForm() {
 
     return (
         <div className="fondo22 fixed flex flex-col justify-center">
-            <form className='form3 flex flex-col text-center gap-14 text-white'
-                onSubmit={handleSubmit}>
-                <h1>Create Account</h1>
+            <form className='form3 flex flex-col text-center gap-14 text-white' onSubmit={handleSubmit}>
+                <h1 className='font-bold'>Create Account</h1>
                 <label className=''>
                     Phase:
                     <select style={{ backgroundColor: "transparent" }}
                         value={phase} onChange={(event) => setPhase(event.target.value)}>
                         <option value="Phase 1">Phase 1</option>
                         <option value="Phase 2">Phase 2</option>
+                        <option value="Founded Account">Founded Account</option>
                         <option value="Payout">Payout</option>
                     </select>
                 </label>

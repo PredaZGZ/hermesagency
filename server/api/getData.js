@@ -58,12 +58,12 @@ async function GetDataHourly() {
 
                 console.log(percentageChangesThisWeek)
 
-                const stats = {
+                /*const stats = {
                     thisWeek,
                     thisMonth,
                     lastWeek,
                     lastMonth,
-                };
+                };*/
 
 
 

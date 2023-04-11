@@ -1,5 +1,6 @@
 const Account = require('../models/Account');
 const User = require('../models/User');
+const GetDataHourly = require('../getData');
 
 module.exports = {
     create: async (req, res) => {
@@ -13,7 +14,6 @@ module.exports = {
         const savedAccount = await newAccount.save();
         user.accounts.push(savedAccount);
         await user.save();
-        const GetDataHourly = require('./getData');
         GetDataHourly()
         return res.status(201).json({ account: savedAccount });
       } catch (error) {
